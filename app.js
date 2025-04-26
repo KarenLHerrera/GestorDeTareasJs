@@ -4,6 +4,9 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+function tareaExiste(lista, tarea) {
+  return lista.includes(tarea);
+}
 
 const tareas = [];
 function contarTareas(lista) {
@@ -37,6 +40,14 @@ function mostrarMenu() {
       default:
         console.log("Por favor ingresa un número válido.");
         mostrarMenu(); // vuelve al menú
+        break;
+      case 4:
+        const buscar = prompt("Escribe la tarea a buscar:");
+        if (tareaExiste(tareas, buscar)) {
+          console.log("La tarea existe.");
+        } else {
+          console.log("La tarea NO existe.");
+        }
         break;
     }
   });
